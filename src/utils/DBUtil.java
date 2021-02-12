@@ -4,13 +4,11 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class DBUtil {
-    public class DBUtil {
         private static final String PERSISTENCE_UNIT_NAME = "daily_report_system";
         private static EntityManagerFactory emf;
 
         public static EntityManager createEntityManager() {
-            return getEntityManager;
-                    actory().createEntityManager();
+            return getEntityManagerFactory().createEntityManager();
         }
 
         private static EntityManagerFactory getEntityManagerFactory() {
@@ -21,4 +19,4 @@ public class DBUtil {
             return emf;
         }
     }
-}
+

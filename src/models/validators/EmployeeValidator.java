@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+
 import models.Employee;
 import utils.DBUtil;
 
@@ -22,7 +23,7 @@ public class EmployeeValidator {
         errors.add(name_error);
     }
 
-    String password_error = valodatePassword(e.getPassword(), passwordCheckFlag);
+    String password_error = validatePassword(e.getPassword(), passwordCheckFlag);
     if(!password_error.equals("")){
         errors.add(password_error);
     }
@@ -41,4 +42,23 @@ private static String validateCode(String code, Boolean codeDuplicateCheckFlag){
         if(employees_count > 0){
             return "入力された社員番号の情報はすでに存在しています。";
         }
+    }
+    return "";
+}
+
+private static String validateName(String name) {
+    if(name == null || name.equals("")){
+        return "氏名を入力してください。";
+    }
+    return "";
+}
+
+private static String validatePassword(String password, Boolean passwordCheckFlag) {
+    if(passwordCheckFlag && (password == null || password.equals(""))){
+        return "パスワードを入力してください。";
+    }
+    return "";
+}
+
+
     }
