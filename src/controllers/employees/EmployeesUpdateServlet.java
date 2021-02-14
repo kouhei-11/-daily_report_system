@@ -37,7 +37,7 @@ public class EmployeesUpdateServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String _token = (String)request.getParameter("_token");
-        if(_token != null && _token.equals(request.getSession().getId()));
+        if(_token != null && _token.equals(request.getSession().getId())){
         EntityManager em = DBUtil.createEntityManager();
 
         Employee e = em.find(Employee.class, (Integer)(request.getSession().getAttribute("employee_id")));
@@ -67,7 +67,7 @@ public class EmployeesUpdateServlet extends HttpServlet {
     }
 
     e.setName(request.getParameter("name"));
-    e.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag)")));
+    e.setAdmin_flag(Integer.parseInt(request.getParameter("admin_flag")));
     e.setUpdated_at(new Timestamp(System.currentTimeMillis()));
     e.setDelete_flag(0);
 
@@ -95,7 +95,7 @@ public class EmployeesUpdateServlet extends HttpServlet {
     }
 
 
-
+        }
     }
 
 }
