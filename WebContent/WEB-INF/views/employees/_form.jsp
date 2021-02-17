@@ -11,11 +11,11 @@
 </div>
 </c:if>
 <label for ="code">社員番号</label><br />
-<input type="text" name="code" value="${employye.code}" />
-<br></br>
+<input type="text" name="code" value="${employee.code}" />
+<br/><br/>
 
 <label for ="name" >氏名</label><br />
-<input type="text" name="name" value="${employye.name}" />
+<input type="text" name="name" value="${employee.name}" />
 <br><br />
 
 <label for ="password" >パスワード</label><br />
@@ -29,7 +29,7 @@
   </select>
 <br><br />
 
-<input type ="hidden" name="_token" value="${_token }" />
+<input type ="hidden" name="_token" value="${_token}" />
 <button type="submit">投稿</button>
 
 
