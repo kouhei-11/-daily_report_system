@@ -5,7 +5,8 @@
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
         <c:choose>
-            <c:when test="${report != null}">
+            <c:when test="${report != null }">
+
                 <h2>日報 詳細ページ</h2>
 
                 <table>
@@ -16,7 +17,8 @@
                         </tr>
                         <tr>
                             <th>日付</th>
-                            <td><fmt:formatDate value="${report.report_date}" pattern="yyyy-MM-dd" /></td>
+                            <td><fmt:formatDate value="${report.report_date}"
+                                    pattern="yyyy-MM-dd" /></td>
                         </tr>
                         <tr>
                             <th>内容</th>
@@ -37,8 +39,21 @@
                     </tbody>
                 </table>
 
+                <div class="iine">
+
+                    <a class="far fa-thumbs-up fa-2x" href= "<c:url value='/iine?id=${report.id}'/>"></a>
+                    <a class="far fa-thumbs-down fa-2x" href= "<c:url value='/waruine?id=${report.id}'/>"></a>
+
+
+                    <h3>
+                     <%=application.getAttribute("iine_count")%>
+                    </h3>
+                    <h3>いいね</h3>
+                </div><br />
                 <c:if test="${sessionScope.login_employee.id == report.employee.id}">
-                    <p><a href="<c:url value="/reports/edit?id=${report.id}" />">この日報を編集する</a></p>
+                    <p>
+                        <a href="<c:url value="/reports/edit?id=${report.id}" />">この日報を編集する</a>
+                    </p>
                 </c:if>
             </c:when>
             <c:otherwise>
@@ -46,6 +61,8 @@
             </c:otherwise>
         </c:choose>
 
-        <p><a href="<c:url value="/reports/index" />">一覧に戻る</a></p>
+        <p>
+            <a href="<c:url value="/reports/index" />">一覧に戻る</a>
+        </p>
     </c:param>
-    </c:import>
+</c:import>
